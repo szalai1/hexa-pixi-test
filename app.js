@@ -9,14 +9,14 @@ let Application = PIXI.Application,
     TextStyle = PIXI.TextStyle;
 
 let app = new Application({ 
-        width: 800, 
-        height: 600,                       
+        width: 1200, 
+        height: 1000,                       
         antialiasing: true, 
         transparent: true, 
         resolution: 1
       }
     );
-tileImagePath = "images/tile.png";
+tileImagePath = "images/tile.svg";
 loader.add(tileImagePath).load(setup);
 
 let tileTexture, tileW, tileH;
@@ -26,8 +26,8 @@ function setup() {
     tileW = tileTexture.width;
     tileH = tileTexture.height;
     map = setUpMap(); 
-    map.container.scale.set(0.1);
-    ship = new Ship(0,0);    
+    map.container.scale.set(1);
+    ship = new Ship(2,2);    
     map.addShip(ship);
     app.stage.addChild(map.container);
 }
@@ -35,8 +35,8 @@ function setup() {
 
 function setUpMap() {
     map = new Map();
-    for( i = 0; i < 5; i++) {
-        for( j = 0; j < 5; j++) {
+    for( i = 0; i < 10; i++) {
+        for( j = -5; j < 10; j++) {
             map.addTile(new Tile(i, j));
         }
     }
